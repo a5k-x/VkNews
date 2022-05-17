@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+     compileSdk 32
+
+    defaultConfig {
+        applicationId "com.ask.vkparsenews"
+        minSdk 19
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    def COROUTINES_VER = "1.5.1"
+    def CORE_KTX_VER = "1.7.0"
+    def APPCOMPAT_VER = "1.4.1"
+    def GOOGLE_MATERIAL = "1.5.0"
+    def CONSTRAINT_LAYOUT_VER = "2.1.3"
+    def LEGACY_SUPPORT_VER = "1.0.0"
+    def RECYCLER_VER = "1.2.1"
+    def ROOM_VER = "2.4.2"
+    def FRAGMENT_KTX_VER= "1.4.1"
+    def RETROFIT_VER = "2.9.0"
+    def OKHTTP_LOG_VER = "4.9.0"
+    def GOOGLE_GSON = "2.8.9"
+    def DAGGER_VER = "2.31"
+    def COIL_VER = "1.4.0"
+    def PAGING_RUNTIME = "3.1.1"
+
+    implementation "androidx.paging:paging-runtime-ktx:$PAGING_RUNTIME"
+    implementation "androidx.room:room-paging:$ROOM_VER"
+
+    implementation "io.coil-kt:coil:$COIL_VER"
+    implementation "io.coil-kt:coil-base:$COIL_VER"
+
+    implementation "com.google.code.gson:gson:$GOOGLE_GSON"
+    implementation("androidx.room:room-runtime:$ROOM_VER")
+    kapt "androidx.room:room-compiler:$ROOM_VER"
+    implementation("androidx.room:room-ktx:$ROOM_VER")
+
+    implementation "com.google.dagger:dagger:$DAGGER_VER"
+    kapt "com.google.dagger:dagger-compiler:$DAGGER_VER"
+
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VER"
+    implementation "com.squareup.retrofit2:converter-gson:$RETROFIT_VER"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_LOG_VER"
+
+    implementation "androidx.fragment:fragment-ktx:$FRAGMENT_KTX_VER"
+    implementation "androidx.recyclerview:recyclerview:$RECYCLER_VER"
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$COROUTINES_VER")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$COROUTINES_VER")
+
+    implementation "androidx.core:core-ktx:$CORE_KTX_VER"
+    implementation "androidx.appcompat:appcompat:$APPCOMPAT_VER"
+    implementation "com.google.android.material:material:$GOOGLE_MATERIAL"
+    implementation "androidx.constraintlayout:constraintlayout:$CONSTRAINT_LAYOUT_VER"
+    implementation "androidx.legacy:legacy-support-v4:$LEGACY_SUPPORT_VER"
+}
