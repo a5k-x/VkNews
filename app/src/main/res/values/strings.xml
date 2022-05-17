@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">VkParseNews</string>
+
+    <string name="data_start">data start</string>
+    <string name="data_end">data end</string>
+    <string name="more_info_item_event">Больше информации...</string>
+
 </resources>
