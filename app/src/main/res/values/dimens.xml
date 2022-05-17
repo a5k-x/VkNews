@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_height">50dp</dimen>
+    <dimen name="header_view_width">3dp</dimen>
+    <dimen name="photo_event_width">50dp</dimen>
+    <dimen name="event_margin">6dp</dimen>
+    <dimen name="time_create_event_margin">8dp</dimen>
+    <dimen name="more_event_padding">4dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="text_view_timestamp">20sp</dimen>
+    <dimen name="card_item_style_margin">6dp</dimen>
+    <dimen name="card_view_details_margin">6dp</dimen>
+    <dimen name="card_view_details_corner_radius">10dp</dimen>
+    <dimen name="image_event_details_size">100dp</dimen>
+    <dimen name="image_event_details_margin">16dp</dimen>
+    <dimen name="name_author_event_margin">16dp</dimen>
+    <dimen name="name_author_event_text_size">20sp</dimen>
+    <dimen name="time_create_event_details_margin">10dp</dimen>
+    <dimen name="nestedScrollView_margin">10dp</dimen>
+    <dimen name="nestedScrollView_container_margin">10dp</dimen>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextViewTimeStamp">
+        <item name="android:background">@color/blue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_view_timestamp</item>
+    </style>
+
+    <style name="CardItemStyle">
+        <item name="android:layout_margin">@dimen/card_item_style_margin</item>
+        <item name="cardBackgroundColor">@color/purple_200</item>
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+    </style>
+
+    <style name="TextViewTitleEvent">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_view_timestamp</item>
+        <item name="android:layout_margin">@dimen/event_margin</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="CardViewDetailsEvent">
+        <item name="android:layout_margin">@dimen/card_view_details_margin</item>
+        <item name="cardBackgroundColor">@color/card_view_details_background</item>
+        <item name="cardCornerRadius">@dimen/card_view_details_corner_radius</item>
+    </style>
+
+    <style name="ImageEventDetails">
+        <item name="android:layout_margin">@dimen/image_event_details_margin</item>
+    </style>
+
+    <style name="NameAuthorEventDetails">
+        <item name="android:layout_marginStart">@dimen/name_author_event_margin</item>
+        <item name="android:layout_marginTop">@dimen/name_author_event_margin</item>
+        <item name="android:layout_marginEnd">@dimen/name_author_event_margin</item>
+        <item name="android:textSize">@dimen/name_author_event_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="layout_goneMarginStart">@dimen/name_author_event_margin</item>
+    </style>
+
+    <style name="TimeCreateEventDetails">
+        <item name="android:layout_marginStart">@dimen/time_create_event_details_margin</item>
+        <item name="android:layout_marginBottom">@dimen/time_create_event_details_margin</item>
+        <item name="layout_goneMarginBottom">@dimen/name_author_event_margin</item>
+        <item name="layout_goneMarginLeft">@dimen/name_author_event_margin</item>
+        <item name="layout_goneMarginTop">@dimen/name_author_event_margin</item>
+    </style>
+
+</resources>

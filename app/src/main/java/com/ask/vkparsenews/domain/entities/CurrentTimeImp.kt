@@ -7,14 +7,14 @@ class CurrentTimeImp : CurrentTime {
 
     private val formatDate = SimpleDateFormat(TIME_PATTERN)
 
-    override fun convertDateToMillisSec(currentTime:String):Long =
-       if (currentTime.isNullOrEmpty()) {
-           try {
-               formatDate.parse(currentTime).time.div(1000)
-           } catch (e: Exception){
-               0
-           }
-       } else 0
+    override fun convertDateToMillisSec(currentTime: String): Long =
+        if (currentTime.isNotEmpty()) {
+            try {
+                formatDate.parse(currentTime).time.div(1000)
+            } catch (e: Exception) {
+                0
+            }
+        } else 0
 
 
     override fun convertTimeMillisToStringDate(timestamp: Long): String {
@@ -23,6 +23,6 @@ class CurrentTimeImp : CurrentTime {
     }
 
     companion object {
-        private const val TIME_PATTERN = "dd:MM:yyyy"
+        private const val TIME_PATTERN = "dd.MM.yyyy"
     }
 }

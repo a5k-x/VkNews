@@ -1,7 +1,7 @@
 package com.ask.vkparsenews.ui.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ask.vkparsenews.data.model.EventsModel
+import com.ask.vkparsenews.domain.entities.EventsModel
 
 object MoviesComparator : DiffUtil.ItemCallback<EventsModel>() {
 

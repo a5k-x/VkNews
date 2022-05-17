@@ -23,6 +23,7 @@ class MainViewModel : ViewModel() {
 
     @Inject
     lateinit var interactor: MainInteractor
+
     @Inject
     lateinit var repository: Repository
 

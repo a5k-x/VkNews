@@ -1,6 +1,7 @@
 package com.ask.vkparsenews.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,7 @@ import com.ask.vkparsenews.presentation.MainViewModel
 import com.ask.vkparsenews.ui.adapter.EventsPagingAdapter
 import com.ask.vkparsenews.ui.adapter.MoviesComparator
 import com.google.android.material.datepicker.MaterialDatePicker
-import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.sql.Timestamp
@@ -22,7 +23,8 @@ import java.sql.Timestamp
 class EventsFragment : Fragment() {
 
     private var vb: FragmentEventsBinding? = null
-    private  val eventsPagingDataAdapter = EventsPagingAdapter(MoviesComparator, ::openDetailsFragment)
+    private val eventsPagingDataAdapter =
+        EventsPagingAdapter(MoviesComparator, ::openDetailsFragment)
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
@@ -45,7 +47,7 @@ class EventsFragment : Fragment() {
         vb?.recyclerViewContainer?.adapter = eventsPagingDataAdapter
     }
 
-    private fun openDetailsFragment(event: EventsModel){
+    private fun openDetailsFragment(event: EventsModel) {
         (activity as ViewNavigation).openEventDetailsFragment(event)
     }
 
@@ -83,37 +85,40 @@ class EventsFragment : Fragment() {
                 getListNews()
             }
         }
-         getListNews()
+        getListNews()
     }
 
-    @OptIn(InternalCoroutinesApi::class)
-    private fun getListNews() {
 
+    private fun getListNews() {
         val startDate = vb?.startDate?.text.toString()
         val endDate = vb?.endDate?.text.toString()
 
         lifecycleScope.launch {
             mainViewModel.initflow(startDate, endDate).collectLatest { value ->
-                eventsPagingDataAdapter.submitData(lifecycle,value)
+                eventsPagingDataAdapter.submitData(lifecycle, value)
             }
         }
 
     }
 
     private fun startDataPicker() {
-        val datePicker = getDataPicker("Start")
-        datePicker.addOnPositiveButtonClickListener {
-            mainViewModel.initStartTimeView(it)
+        lifecycleScope.launch {
+            val datePicker = getDataPicker(NAME_TITLE_DATAPICKER_START)
+            datePicker.addOnPositiveButtonClickListener {
+                mainViewModel.initStartTimeView(it)
+            }
+            datePicker.show(childFragmentManager, "")
         }
-        datePicker.show(childFragmentManager, "")
     }
 
     private fun endDataPicker() {
-        val datePicker = getDataPicker("End")
-        datePicker.addOnPositiveButtonClickListener {
-            mainViewModel.initEndTimeView(it)
+        lifecycleScope.launch {
+            val datePicker = getDataPicker(NAME_TITLE_DATAPICKER_END)
+            datePicker.addOnPositiveButtonClickListener {
+                mainViewModel.initEndTimeView(it)
+            }
+            datePicker.show(childFragmentManager, "")
         }
-        datePicker.show(childFragmentManager, "")
     }
 
     private fun getDataPicker(text: String): MaterialDatePicker<Long> =
@@ -123,6 +128,8 @@ class EventsFragment : Fragment() {
             .build()
 
     companion object {
+        private const val NAME_TITLE_DATAPICKER_START = "Start"
+        private const val NAME_TITLE_DATAPICKER_END = "End"
         private const val YESTERDAY_TIME_MSEC = 86_400_000
         fun newInstance() = EventsFragment()
 

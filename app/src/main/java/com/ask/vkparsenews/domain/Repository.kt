@@ -1,6 +1,7 @@
 package com.ask.vkparsenews.domain
 
-import com.ask.vkparsenews.data.model.EventsModel
+import com.ask.vkparsenews.domain.entities.EventsModel
+
 
 interface Repository {
 

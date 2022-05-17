@@ -1,7 +1,6 @@
 package com.ask.vkparsenews.domain.entities
 
 import com.ask.vkparsenews.data.model.Events
-import com.ask.vkparsenews.data.model.EventsModel
 import java.text.SimpleDateFormat
 import java.util.*
 

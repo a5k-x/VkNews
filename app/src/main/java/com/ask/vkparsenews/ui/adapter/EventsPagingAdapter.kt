@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.ask.vkparsenews.data.model.EventsModel
+
 import com.ask.vkparsenews.databinding.ItemEventBinding
+import com.ask.vkparsenews.domain.entities.EventsModel
 
 class EventsPagingAdapter(
     diffCallback: DiffUtil.ItemCallback<EventsModel>,
